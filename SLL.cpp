@@ -1,5 +1,3 @@
-// 다시 쳐야함
-
 #include "SLL.h"
 using namespace std;
 
@@ -36,10 +34,10 @@ void SLL::Insert(int num)
 
 		// 리스트를 순회할 포인터 nullptr이 아닐 때까지 돌면서
 		while (temp->pNext != nullptr)
-		{
-			temp->pNext->pNext;
+		{ 
+			temp = temp->pNext;
 		}
-		return;
+		temp->pNext = newNode;
 	}
 }
 
@@ -47,21 +45,30 @@ void SLL::Delete(int num)
 {
 	// 과제 : 채우기
 	// 현재 노드를 가리키는 포인터
+	node* temp1 = pHead;
 	// 다음 노드를 가리키는 포인터
-
+	node* temp2=temp1->pNext;
 	// 첫번째 노드가 삭제하려는 노드라면
-	// 헤드를 다음 노드로 이동시키고
-	// 삭제
-
-	// 리스트를 돌면서 삭제할 노드를 찾아야함
-	// 현재 노드를 다음 노드로 이동
-	// 다음 노드를 그 다음 노드로 이동
-	// 못찾으면 종료
-
-	// 이전 노드를 다음 노드에 연결
-
-	// 삭제
-
+	if (temp1->value == num) {
+		// 헤드를 다음 노드로 이동시키고
+		pHead = temp1->pNext;
+		// 삭제
+		delete temp1;
+	}
+	else {
+		// 리스트를 돌면서 삭제할 노드를 찾아야함
+		while (temp2->value != num) {
+			// 현재 노드를 다음 노드로 이동
+			temp1 = temp1->pNext;
+			// 다음 노드를 그 다음 노드로 이동
+			temp2 = temp2->pNext;
+			// 못찾으면 종료
+		}
+		// 이전 노드를 다음 노드에 연결
+		temp1->pNext = temp2->pNext;
+		// 삭제
+		delete temp2;
+	}
 }
 
 void SLL::Print()
@@ -71,5 +78,6 @@ void SLL::Print()
 
 	while (temp != nullptr) {
 		cout << temp->value << " ";
+		temp = temp->pNext;
 	}
 }

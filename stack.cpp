@@ -2,22 +2,15 @@
 Stack
 LIFO(LastInFirstOut) : 후입선출
 
-|			|
-|			|
-|			|
-|			|
-|			|
-|			|
-|			|
--------------
-
 - push : 스택에 새로운 요소를 추가하는 연산
 - pop : 최상단 요소를 제거하고 반환
-- top(Peek) : 스택의 최상된 요소를 반환
+- top(Peek) : 스택의 최상단 요소를 반환
 - Empty : 스택이 비어있는가?
 */
 #include<iostream>
+#include<assert.h>
 using namespace std;
+
 template<typename T>
 class Stack {
 	static const int MAX_VALUES = 5;
@@ -70,5 +63,4 @@ int main() {
 	cout << "Pop : " << stack.Pop() << "\n";
 
 	cout << "top : " << stack.Top() << "\n";
- 
 }

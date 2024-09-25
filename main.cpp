@@ -18,7 +18,6 @@ LinkedList
 |	|	|	|	|	|	|	|	|	|	|	|	|	|
 -----------------------------------------------------
 */
-#include<iostream>
 #include"SLL.h"
 using namespace std;
 int main() {
@@ -29,6 +28,7 @@ int main() {
 	s.Insert(3);
 	s.Insert(4);
 	s.Insert(5);
+	s.Delete(5);
 
 	s.Print();
 }
